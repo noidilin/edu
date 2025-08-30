@@ -4,6 +4,9 @@ import LogoTicker from './(home)/logo-ticker'
 import Intro from './(home)/intro'
 import Features from './(home)/features'
 import Integrations from './(home)/integrations'
+import Faqs from './(home)/faqs'
+import Cta from './(home)/cta'
+import Footer from '@/components/footer'
 
 export default function Home() {
   return (
@@ -14,6 +17,9 @@ export default function Home() {
       <Intro />
       <Features />
       <Integrations />
+      <Faqs />
+      <Cta />
+      <Footer />
     </>
   )
 }
