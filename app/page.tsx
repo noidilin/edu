@@ -3,6 +3,7 @@ import Hero from './(home)/hero'
 import LogoTicker from './(home)/logo-ticker'
 import Intro from './(home)/intro'
 import Features from './(home)/features'
+import Integrations from './(home)/integrations'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <LogoTicker />
       <Intro />
       <Features />
+      <Integrations />
     </>
   )
 }
