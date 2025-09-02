@@ -1,12 +1,12 @@
-import Navbar from '@/components/nav-bar'
-import Hero from './(home)/hero'
-import LogoTicker from './(home)/logo-ticker'
-import Intro from './(home)/intro'
-import Features from './(home)/features'
-import Integrations from './(home)/integrations'
-import Faqs from './(home)/faqs'
-import Cta from './(home)/cta'
 import Footer from '@/components/footer'
+import Navbar from '@/components/nav-bar'
+import Cta from './(home)/cta'
+import Faqs from './(home)/faqs'
+import Features from './(home)/features'
+import Hero from './(home)/hero'
+import Integrations from './(home)/integrations'
+import Intro from './(home)/intro'
+import LogoTicker from './(home)/logo-ticker'
 
 export default function Home() {
   return (
