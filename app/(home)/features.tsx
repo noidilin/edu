@@ -11,6 +11,7 @@ import { H2 } from '@/components/ui/typography'
 import avatar1 from '@/public/images/avatar-ashwin-santiago.jpg'
 import avatar2 from '@/public/images/avatar-florence-shaw.jpg'
 import avatar3 from '@/public/images/avatar-lula-meyers.jpg'
+import avatar4 from '@/public/images/avatar-owen-garcia.jpg'
 import { Keycap } from '@/components/ui/keycap'
 
 const features = [
@@ -33,29 +34,36 @@ export default function Features() {
         Where power meets <span className='text-lime-400'>simplicity</span>
       </H2>
       <div className='mx-auto mt-12 grid max-w-9/12 grid-cols-1 gap-8 md:max-w-full md:grid-cols-4 lg:grid-cols-3 xl:max-w-6xl'>
-        <Card className='md:col-span-2 lg:col-span-1'>
+        <Card className='group md:col-span-2 lg:col-span-1'>
           <CardContent className='flex aspect-video items-center justify-center'>
-            <div className='flex justify-center -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:grayscale'>
+            <div className='flex justify-center -space-x-2 transition duration-500'>
               <Avatar className='z-40'>
                 <AvatarImage src={avatar1.src} alt='ashwin-santiago' />
                 <AvatarFallback>AS</AvatarFallback>
               </Avatar>
-              <Avatar className='z-30'>
+              <Avatar className='z-30 delay-100'>
                 <AvatarImage src={avatar2.src} alt='florence-shaw' />
                 <AvatarFallback>FS</AvatarFallback>
               </Avatar>
-              <Avatar className='z-20'>
+              <Avatar className='z-20 delay-200'>
                 <AvatarImage src={avatar3.src} alt='lula-meyers' />
                 <AvatarFallback>LM</AvatarFallback>
               </Avatar>
-              <Avatar className='z-10'>
-                <AvatarFallback>
-                  <div className='inline-flex size-full items-center justify-center gap-1 rounded-full bg-neutral-700'>
-                    <span className='inline-flex size-1.5 rounded-full bg-foreground'></span>
-                    <span className='inline-flex size-1.5 rounded-full bg-foreground'></span>
-                    <span className='inline-flex size-1.5 rounded-full bg-foreground'></span>
-                  </div>
-                </AvatarFallback>
+              <Avatar className='z-10 delay-300'>
+                <div className='relative inline-flex size-full items-center justify-center gap-1 rounded-full bg-neutral-700'>
+                  <AvatarImage
+                    src={avatar4.src}
+                    alt='owen-garcia'
+                    className='absolute size-full rounded-full opacity-0 transition duration-500 group-hover:opacity-100'
+                  />
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <span
+                      key={i}
+                      className='inline-flex size-1.5 rounded-full bg-foreground'
+                    ></span>
+                  ))}
+                </div>
+                <AvatarFallback></AvatarFallback>
               </Avatar>
             </div>
           </CardContent>
@@ -66,13 +74,21 @@ export default function Features() {
             </CardDescription>
           </CardHeader>
         </Card>
-        <Card className='md:col-span-2 lg:col-span-1'>
+        <Card className='group md:col-span-2 lg:col-span-1'>
           <CardContent className='flex aspect-video items-center justify-center'>
             <div className='flex justify-center'>
-              <p className='text-center text-4xl font-extrabold text-foreground/20'>
+              <p className='text-center text-4xl font-extrabold text-foreground/20 transition duration-500 group-hover:text-foreground/10'>
                 We&apos;ve achieved{' '}
-                <span className='bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent'>
-                  incredible
+                <span className='relative bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent'>
+                  <span>incredible</span>
+                  <video
+                    src='/images/gif-incredible.mp4'
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className='pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 rounded-2xl opacity-0 shadow-2xl transition duration-500 group-hover:opacity-100'
+                  />
                 </span>{' '}
                 growth this year
               </p>
@@ -85,12 +101,12 @@ export default function Features() {
             </CardDescription>
           </CardHeader>
         </Card>
-        <Card className='md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto'>
+        <Card className='group md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto'>
           <CardContent className='flex aspect-video items-center justify-center'>
             <div className='flex justify-center gap-4'>
               <Keycap className='w-28'>shift</Keycap>
-              <Keycap>alt</Keycap>
-              <Keycap>C</Keycap>
+              <Keycap className='delay-150'>alt</Keycap>
+              <Keycap className='delay-300'>C</Keycap>
             </div>
           </CardContent>
           <CardHeader>
@@ -105,9 +121,9 @@ export default function Features() {
         {features.map((feature) => (
           <div
             key={feature}
-            className='inline-flex items-center gap-3 rounded-2xl border-foreground/10 bg-neutral-900 px-3 py-1.5 md:px-5 md:py-2'
+            className='group inline-flex items-center gap-3 rounded-2xl border-foreground/10 bg-neutral-900 px-3 py-1.5 transition duration-500 hover:scale-105 md:px-5 md:py-2'
           >
-            <span className='inline-flex size-5 items-center justify-center rounded-full bg-lime-400 text-xl text-neutral-950'>
+            <span className='inline-flex size-5 items-center justify-center rounded-full bg-lime-400 text-xl text-neutral-950 transition duration-500 group-hover:rotate-180'>
               &#10038;
             </span>
             <span className='font-medium md:text-lg'>{feature}</span>
