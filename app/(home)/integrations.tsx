@@ -1,3 +1,4 @@
+import * as motion from 'motion/react-client'
 import { AssetCol } from '@/components/ui/asset-col'
 import { Tag } from '@/components/ui/tag'
 import { H2, Paragraph } from '@/components/ui/typography'
@@ -58,11 +59,23 @@ export default function Integrations() {
           </Paragraph>
         </div>
         <div className='mt-8 grid h-[400px] gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] md:grid-cols-2 lg:mt-0 lg:h-[800px]'>
-          <AssetCol integrations={integrations} />
-          <AssetCol
-            integrations={integrations.slice().reverse()}
-            className='hidden md:flex'
-          />
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: '-50%' }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+          >
+            <AssetCol integrations={integrations} />
+          </motion.div>
+          <motion.div
+            initial={{ y: '-50%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+          >
+            <AssetCol
+              integrations={integrations.slice().reverse()}
+              className='hidden md:flex'
+            />
+          </motion.div>
         </div>
       </div>
     </section>
