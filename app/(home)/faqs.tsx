@@ -1,5 +1,9 @@
-import { Tag } from '@/components/ui/tag'
+'use client'
+
 import { Plus } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
+import { useState } from 'react'
+import { Tag } from '@/components/ui/tag'
 import { H2, H3, Paragraph } from '@/components/ui/typography'
 
 const faqs = [
@@ -31,7 +35,7 @@ const faqs = [
 ]
 
 export default function Faqs() {
-  const selectedIndex = 0
+  const [selectedIndex, setSelectedIndex] = useState(0)
   return (
     <section className='mx-auto max-w-10/12 py-24'>
       <div className='flex justify-center'>
@@ -46,15 +50,29 @@ export default function Faqs() {
             key={faq.question}
             className='rounded-2xl border border-foreground/10 bg-neutral-900 p-6'
           >
-            <div className='flex items-center justify-between'>
+            <div
+              className='flex items-center justify-between'
+              onClick={() => setSelectedIndex(index)}
+            >
               <H3 className='font-medium'>{faq.question}</H3>
               <Plus
-                className={`shrink-0 text-lime-400 ${selectedIndex === index && 'rotate-45'}`}
+                className={`shrink-0 text-lime-400 transition duration-300 ${selectedIndex === index && 'rotate-45'}`}
               />
             </div>
-            <div className={`mt-6 ${selectedIndex !== index && 'hidden'}`}>
-              <Paragraph className='text-foreground/50'>{faq.answer}</Paragraph>
-            </div>
+            <AnimatePresence>
+              {selectedIndex === index && (
+                <motion.div
+                  initial={{ height: 0, marginTop: 0 }}
+                  animate={{ height: 'auto', marginTop: 24 }}
+                  exit={{ height: 0, marginTop: 0 }}
+                  className='overflow-hidden'
+                >
+                  <Paragraph className='text-foreground/50'>
+                    {faq.answer}
+                  </Paragraph>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>
