@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`antialiased bg-neutral-900 text-neutral-200 ${merriweather.variable} ${fraunces.variable} ${firaCode.variable}`}
+        className={`antialiased bg-background text-foreground ${merriweather.variable} ${fraunces.variable} ${firaCode.variable}`}
       >
         <ThemeProvider
           attribute='class'

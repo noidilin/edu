@@ -1,5 +1,6 @@
-import { Button } from './ui/button'
 import { LucideMenu } from 'lucide-react'
+import { ThemeToggle } from './theme-toggle'
+import { Button } from './ui/button'
 
 const navItems = [
   {
@@ -24,17 +25,20 @@ const navItems = [
   },
 ]
 
-export default function Header() {
+function Header() {
   return (
-    <header className='mx-auto px-4 md:px-8 lg:px-16 max-w-full'>
-      <div className='flex justify-between h-20 items-center'>
+    <header className='section-box fixed top-0 left-0 w-full bg-sidebar/90 text-sidebar-foreground backdrop-blur-sm'>
+      <div className='flex h-12 items-center justify-between xl:h-14'>
         <div>
           <a href='/'>
-            <span className='text-xl font-bold uppercase'>noidilin.</span>
+            <span className='text-xl font-bold lowercase'>noidilin.</span>
           </a>
         </div>
         <div className='flex items-center gap-2'>
-          <Button variant='outline'>Contact me</Button>
+          <Button variant='ghost' className='hidden lowercase md:inline-flex'>
+            Contact me
+          </Button>
+          <ThemeToggle />
           <Button variant='ghost' size='icon'>
             <LucideMenu className='size-6' strokeWidth={3} />
           </Button>
@@ -43,3 +47,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header
