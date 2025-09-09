@@ -1,15 +1,8 @@
 import type { Metadata } from 'next'
-import { Archivo } from 'next/font/google'
+import { merriweather, fraunces, firaCode } from '@/lib/fonts'
 import './globals.css'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
-
-const archivo = Archivo({
-  variable: '--font-archivo',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: 'variable',
-})
 
 export const metadata: Metadata = {
   title: 'Minimal Single Page Portfolio',
@@ -24,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`antialiased bg-neutral-900 text-neutral-200 ${archivo.className}`}
+        className={`antialiased bg-neutral-900 text-neutral-200 ${merriweather.variable} ${fraunces.variable} ${firaCode.variable}`}
       >
         <ThemeProvider
           attribute='class'

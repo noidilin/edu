@@ -38,9 +38,9 @@
   --sidebar-accent-foreground: oklch(0.937 0 0);
   --sidebar-border: oklch(0.8078 0 0);
   --sidebar-ring: oklch(0.6234 0 0);
-  --font-sans: Fira Sans, ui-sans-serif, sans-serif, system-ui;
-  --font-serif: Fraunces, ui-serif, serif;
-  --font-mono: Fira Code, monospace;
+  --font-sans: var(--font-merriweather), ui-sans-serif, sans-serif, system-ui;
+  --font-serif: var(--font-fraunces), ui-serif, serif;
+  --font-mono: var(--font-fira-code), monospace;
   --radius: 0.25rem;
   --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 25.4902% / 0.13);
   --shadow-xs: 0px 1px 2px 0px hsl(0 0% 25.4902% / 0.13);
@@ -97,7 +97,7 @@
   --sidebar-accent-foreground: oklch(0.235 0 0);
   --sidebar-border: oklch(0.329 0 0);
   --sidebar-ring: oklch(0.7668 0 0);
-  --font-sans: Fira Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-sans: Merriweather Sans, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Fraunces, ui-serif, serif;
   --font-mono: Fira Code, monospace;
   --radius: 0.25rem;
@@ -173,7 +173,6 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
