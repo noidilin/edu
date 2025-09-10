@@ -43,7 +43,7 @@ function Testimonials() {
   const [testimonialIndex, setTestimonialIndex] = useState(0)
   return (
     <section className='section-padding'>
-      <H2 className='flex flex-col overflow-hidden text-4xl md:text-7xl lg:text-8xl'>
+      <H2 className='flex flex-col overflow-hidden text-4xl font-bold opacity-20 md:text-7xl lg:text-8xl'>
         <span className='whitespace-nowrap'>
           Some nice words from my past clients
         </span>
@@ -71,11 +71,9 @@ function Testimonials() {
                     />
                   </div>
                   <div className='flex flex-col justify-between md:col-span-3 md:h-full'>
-                    <Blockquote className='md:mt-0'>
+                    <Blockquote className='not-italic md:mt-0'>
                       <div className='font-serif text-3xl md:text-5xl lg:text-6xl'>
-                        <span>&ldquo;</span>
                         <span>{quote}</span>
-                        <span>&rdquo;</span>
                       </div>
                       <cite className='mt-4 block font-extralight not-italic md:mt-8 md:text-lg lg:text-xl'>
                         {name}, {role} at {company}
