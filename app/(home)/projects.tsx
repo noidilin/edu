@@ -32,7 +32,7 @@ const projects = [
 
 function Projects() {
   return (
-    <section className='section-box py-24 md:py-32 lg:py-40'>
+    <section className='section-box section-padding'>
       <H2 className='text-4xl font-bold md:text-7xl lg:text-8xl'>
         Select Works
       </H2>
