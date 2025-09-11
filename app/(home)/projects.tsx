@@ -6,6 +6,11 @@ import image2 from '@/public/images/project-2.jpg'
 import image3 from '@/public/images/project-3.jpg'
 import image4 from '@/public/images/project-4.jpg'
 import image5 from '@/public/images/project-5.jpg'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card'
 
 const projects = [
   {
@@ -41,9 +46,10 @@ function Projects() {
           <a
             href='/'
             key={name}
-            className='flex flex-col border-b py-6 last:border-0 md:py-8 lg:py-10'
+            className='group/project relative flex flex-col border-b py-6 last:border-0 md:py-8 lg:py-10'
           >
-            <div>
+            <div className='absolute bottom-0 left-0 h-0.5 w-0 bg-accent transition-all duration-300 group-hover/project:w-full' />
+            <HoverCard>
               <div className='aspect-video md:hidden'>
                 <Image
                   src={image}
@@ -51,11 +57,28 @@ function Projects() {
                   className='size-full object-cover'
                 />
               </div>
-              <div className='mt-8 flex items-end justify-between md:mt-0'>
-                <H3 className='md:text-3xl lg:text-4xl'>{name}</H3>
-                <ChevronRight />
-              </div>
-            </div>
+              <HoverCardTrigger asChild>
+                <div className='mt-8 flex items-end justify-between md:mt-0'>
+                  <div className='transition-all duration-300 group-hover/project:pl-4'>
+                    <H3 className='md:text-3xl lg:text-4xl'>{name}</H3>
+                  </div>
+                  <div className='transition-all duration-300 group-hover/project:pr-4'>
+                    <ChevronRight />
+                  </div>
+                </div>
+              </HoverCardTrigger>
+              <HoverCardContent
+                align='end'
+                sideOffset={0}
+                className='md:w-sm lg:w-md xl:w-xl'
+              >
+                <Image
+                  src={image}
+                  alt={`${name} image`}
+                  className='size-full object-cover'
+                />
+              </HoverCardContent>
+            </HoverCard>
           </a>
         ))}
       </div>
