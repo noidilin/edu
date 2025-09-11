@@ -1,4 +1,14 @@
-import { LucideMenu } from 'lucide-react'
+'use client'
+
+import { ChevronRight, MenuIcon } from 'lucide-react'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet'
 import { ThemeToggle } from './theme-toggle'
 import { Button } from './ui/button'
 
@@ -26,6 +36,19 @@ const navItems = [
 ]
 
 function Header() {
+  // NOTE: MouseEvent is DOM events which don't support generic type, while React.MouseEvent is generic
+  const handleClickMobileNavItem = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    e.preventDefault()
+    const url = new URL(e.currentTarget.href)
+    const hash = url.hash
+    const target = document.querySelector(hash)
+
+    if (!target) return
+    target.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <header className='section-box fixed top-0 left-0 w-full bg-sidebar/90 text-sidebar-foreground backdrop-blur-sm'>
       <div className='flex h-12 items-center justify-between xl:h-14'>
@@ -39,9 +62,36 @@ function Header() {
             Contact me
           </Button>
           <ThemeToggle />
-          <Button variant='ghost' size='icon'>
-            <LucideMenu className='size-6' strokeWidth={3} />
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant='ghost' size='icon'>
+                <MenuIcon className='size-6' strokeWidth={1.5} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>navigation.</SheetTitle>
+              </SheetHeader>
+              <div className='mb-8 px-4'>
+                {navItems.map(({ label, href }) => (
+                  <a
+                    href={href}
+                    key={label}
+                    className='group/nav-item relative text-card-foreground lowercase'
+                    onClick={(e) => handleClickMobileNavItem(e)}
+                  >
+                    <SheetClose asChild>
+                      <div className='flex items-center-safe justify-end transition-all duration-300 group-hover/nav-item:pr-2'>
+                        <span className='border-b text-lg'>{label}</span>
+                        <ChevronRight className='size-4' strokeWidth={2} />
+                      </div>
+                    </SheetClose>
+                    <div className='absolute -right-1 bottom-0 h-0 w-0.5 bg-primary transition-all duration-300 group-hover/nav-item:h-full' />
+                  </a>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

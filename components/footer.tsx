@@ -11,7 +11,7 @@ const navItems = [
 
 function Footer() {
   return (
-    <footer className='section-box bg-primary text-background'>
+    <footer className='section-box bg-primary text-background' id='contact'>
       <div className='section-padding'>
         <div className='flex items-center gap-3'>
           <div className='size-3 rounded-full bg-accent' />

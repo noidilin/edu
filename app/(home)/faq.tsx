@@ -26,7 +26,7 @@ const faqs = [
 
 function FAQs() {
   return (
-    <section className='section-box'>
+    <section className='section-box' id='faqs'>
       <H2 className='text-4xl md:text-7xl lg:text-8xl'>FAQs</H2>
       <div className='mt-10 md:mt-16 lg:mt-20'>
         {faqs.map(({ question, answer }) => (

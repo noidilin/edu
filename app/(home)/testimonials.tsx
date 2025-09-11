@@ -42,7 +42,7 @@ const testimonials = [
 function Testimonials() {
   const [testimonialIndex, setTestimonialIndex] = useState(0)
   return (
-    <section className='section-padding'>
+    <section className='section-padding' id='testimonials'>
       <H2 className='flex flex-col overflow-hidden text-4xl font-bold opacity-20 md:text-7xl lg:text-8xl'>
         <span className='whitespace-nowrap'>
           Some nice words from my past clients
