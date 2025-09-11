@@ -3,11 +3,11 @@
 import { ChevronRight, MenuIcon } from 'lucide-react'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from '@/components/ui/sheet'
 import { ThemeToggle } from './theme-toggle'
 import { Button } from './ui/button'
@@ -50,11 +50,13 @@ function Header() {
   }
 
   return (
-    <header className='section-box fixed top-0 left-0 w-full bg-sidebar/90 text-sidebar-foreground backdrop-blur-sm'>
+    <header className='section-box fixed top-0 left-0 z-100 w-full bg-sidebar/90 text-sidebar-foreground backdrop-blur-sm'>
       <div className='flex h-12 items-center justify-between xl:h-14'>
         <div>
           <a href='/'>
-            <span className='text-xl font-bold lowercase'>noidilin.</span>
+            <span className='text-xl font-bold text-accent-foreground lowercase dark:text-accent'>
+              noidilin.
+            </span>
           </a>
         </div>
         <div className='flex items-center gap-2'>
