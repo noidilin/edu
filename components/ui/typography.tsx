@@ -6,7 +6,10 @@ type TypographyProps = {
   className?: string
 }
 
-export function H1({ children, className }: TypographyProps) {
+export function H1({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'h1'>) {
   return (
     <h1
       className={cn(
@@ -19,7 +22,10 @@ export function H1({ children, className }: TypographyProps) {
   )
 }
 
-export function H2({ children, className }: TypographyProps) {
+export function H2({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'h2'>) {
   return (
     <h2
       className={cn(
@@ -32,7 +38,10 @@ export function H2({ children, className }: TypographyProps) {
   )
 }
 
-export function H3({ children, className }: TypographyProps) {
+export function H3({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'h3'>) {
   return (
     <h3
       className={cn(
@@ -45,7 +54,10 @@ export function H3({ children, className }: TypographyProps) {
   )
 }
 
-export function H4({ children, className }: TypographyProps) {
+export function H4({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'h4'>) {
   return (
     <h4
       className={cn(
@@ -58,7 +70,10 @@ export function H4({ children, className }: TypographyProps) {
   )
 }
 
-export function Paragraph({ children, className }: TypographyProps) {
+export function Paragraph({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'p'>) {
   return (
     <p className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}>
       {children}
@@ -66,31 +81,48 @@ export function Paragraph({ children, className }: TypographyProps) {
   )
 }
 
-export function Lead({ children, className }: TypographyProps) {
+export function Lead({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'p'>) {
   return (
     <p className={cn('text-xl text-muted-foreground', className)}>{children}</p>
   )
 }
 
-export function Large({ children, className }: TypographyProps) {
-  return <p className={cn('text-lg font-semibold', className)}>{children}</p>
-}
-
-export function Small({ children, className }: TypographyProps) {
+export function Large({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'div'>) {
   return (
-    <p className={cn('text-sm leading-none font-medium', className)}>
-      {children}
-    </p>
+    <div className={cn('text-lg font-semibold', className)}>{children}</div>
   )
 }
 
-export function Muted({ children, className }: TypographyProps) {
+export function Small({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'small'>) {
+  return (
+    <small className={cn('text-sm leading-none font-medium', className)}>
+      {children}
+    </small>
+  )
+}
+
+export function Muted({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'p'>) {
   return (
     <p className={cn('text-sm text-muted-foreground', className)}>{children}</p>
   )
 }
 
-export function Blockquote({ children, className }: TypographyProps) {
+export function Blockquote({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'blockquote'>) {
   return (
     <blockquote className={cn('mt-6 border-l-2 pl-6 italic', className)}>
       {children}
@@ -98,7 +130,10 @@ export function Blockquote({ children, className }: TypographyProps) {
   )
 }
 
-export function List({ children, className }: TypographyProps) {
+export function List({
+  children,
+  className,
+}: TypographyProps & React.ComponentProps<'ul'>) {
   return (
     <ul className={cn('my-6 ml-6 list-disc [&>li]:mt-2', className)}>
       {children}
