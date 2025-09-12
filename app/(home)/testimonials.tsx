@@ -1,10 +1,15 @@
 'use client'
 
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
-import { Button } from '@/components/ui/button'
+import { useRef } from 'react'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 import { Blockquote, H2 } from '@/components/ui/typography'
 import image1 from '@/public/images/testimonial-1.jpg'
 import image2 from '@/public/images/testimonial-2.jpg'
@@ -49,8 +54,6 @@ function Testimonials() {
   const transTop = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
   const transBot = useTransform(scrollYProgress, [0, 1], ['0%', '-15%'])
 
-  const [testimonialIndex, setTestimonialIndex] = useState(0)
-
   return (
     <section className='section-padding' id='testimonials'>
       <div ref={titleRef}>
@@ -66,57 +69,41 @@ function Testimonials() {
           </motion.span>
         </H2>
       </div>
-      <div className='section-box mt-20'>
-        <div>
+      <Carousel className='section-box mt-20'>
+        <CarouselContent>
           {testimonials.map(
-            ({ name, company, role, quote, image, imagePositionY }, index) =>
-              index === testimonialIndex && (
-                <div
-                  key={name}
-                  className='grid md:grid-cols-5 md:items-center md:gap-8 lg:gap-16'
-                >
-                  <div className='aspect-square md:col-span-2 md:aspect-[9/16]'>
-                    <Image
-                      src={image}
-                      alt={name}
-                      className='size-full object-cover'
-                      style={{
-                        objectPosition: `50% ${imagePositionY * 100}%`,
-                      }}
-                    />
-                  </div>
-                  <div className='flex flex-col justify-between md:col-span-3 md:h-full'>
-                    <Blockquote className='not-italic md:mt-0'>
-                      <div className='font-serif text-3xl md:text-5xl lg:text-6xl'>
-                        <span>{quote}</span>
-                      </div>
-                      <cite className='mt-4 block font-extralight not-italic md:mt-8 md:text-lg lg:text-xl'>
-                        {name}, {role} at {company}
-                      </cite>
-                    </Blockquote>
-                    {/* TODO: is it efficient since this components are the same */}
-                    <div className='flex gap-4 self-end'>
-                      <Button
-                        variant='outline'
-                        className='dark:bg-background'
-                        onClick={() => setTestimonialIndex(0)}
-                      >
-                        <ChevronLeft />
-                      </Button>
-                      <Button
-                        variant='outline'
-                        className='dark:bg-background'
-                        onClick={() => setTestimonialIndex(1)}
-                      >
-                        <ChevronRight />
-                      </Button>
-                    </div>
-                  </div>
+            ({ name, company, role, quote, image, imagePositionY }) => (
+              <CarouselItem
+                key={name}
+                className='md:grid md:grid-cols-5 md:items-center md:gap-8 lg:gap-16'
+              >
+                <div className='aspect-square md:col-span-2 md:aspect-[3/4] xl:aspect-square'>
+                  <Image
+                    src={image}
+                    alt={name}
+                    className='size-full object-cover'
+                    style={{
+                      objectPosition: `50% ${imagePositionY * 100}%`,
+                    }}
+                  />
                 </div>
-              ),
+                <div className='flex flex-col justify-between md:col-span-3 md:h-full'>
+                  <Blockquote className='not-italic md:mt-0'>
+                    <div className='font-serif text-3xl md:text-5xl lg:text-6xl'>
+                      {quote}
+                    </div>
+                    <cite className='mt-4 block font-extralight not-italic md:mt-8 md:text-lg lg:text-xl'>
+                      {name}, {role} at {company}
+                    </cite>
+                  </Blockquote>
+                </div>
+              </CarouselItem>
+            ),
           )}
-        </div>
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className='top-full left-[calc(100%-6rem)] translate-y-0 md:top-[calc(100%-2rem)]' />
+        <CarouselNext className='top-full right-[calc(1rem)] translate-y-0 md:top-[calc(100%-2rem)]' />
+      </Carousel>
     </section>
   )
 }
