@@ -1,8 +1,9 @@
 'use client'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Blockquote, H2 } from '@/components/ui/typography'
 import image1 from '@/public/images/testimonial-1.jpg'
@@ -40,17 +41,31 @@ const testimonials = [
 ]
 
 function Testimonials() {
+  const titleRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: titleRef,
+    offset: ['start end', 'end start'],
+  })
+  const transTop = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
+  const transBot = useTransform(scrollYProgress, [0, 1], ['0%', '-15%'])
+
   const [testimonialIndex, setTestimonialIndex] = useState(0)
+
   return (
     <section className='section-padding' id='testimonials'>
-      <H2 className='flex flex-col overflow-hidden text-4xl font-bold opacity-20 md:text-7xl lg:text-8xl'>
-        <span className='whitespace-nowrap'>
-          Some nice words from my past clients
-        </span>
-        <span className='self-end whitespace-nowrap text-muted-foreground'>
-          Some nice words from my past clients
-        </span>
-      </H2>
+      <div ref={titleRef}>
+        <H2 className='flex flex-col overflow-hidden text-4xl font-bold opacity-20 md:text-7xl lg:text-8xl'>
+          <motion.span className='whitespace-nowrap' style={{ x: transTop }}>
+            Some nice words from my past clients
+          </motion.span>
+          <motion.span
+            className='self-end whitespace-nowrap text-muted-foreground'
+            style={{ x: transBot }}
+          >
+            Some nice words from my past clients
+          </motion.span>
+        </H2>
+      </div>
       <div className='section-box mt-20'>
         <div>
           {testimonials.map(
