@@ -1,5 +1,10 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { H2 } from '@/components/ui/typography'
-import { Plus } from 'lucide-react'
 
 const faqs = [
   {
@@ -26,19 +31,24 @@ const faqs = [
 
 function FAQs() {
   return (
-    <section className='section-box' id='faqs'>
+    <section className='section-box pb-24' id='faqs'>
       <H2 className='text-4xl md:text-7xl lg:text-8xl'>FAQs</H2>
-      <div className='mt-10 md:mt-16 lg:mt-20'>
-        {faqs.map(({ question, answer }) => (
-          <div
+      <Accordion type='single' collapsible className='mt-10'>
+        {faqs.map(({ question, answer }, index) => (
+          <AccordionItem
+            value={`item-${index + 1}`}
             key={question}
-            className='flex items-center justify-between gap-4 border-b py-6 last:border-0 md:py-8 lg:py-10'
+            className='group/faq'
           >
-            <div className='text-2xl md:text-3xl lg:text-4xl'>{question}</div>
-            <Plus />
-          </div>
+            <AccordionTrigger className='text-2xl font-light transition-all duration-300 group-hover/faq:pl-1 group-hover/faq:font-normal md:text-3xl lg:text-4xl'>
+              {question}
+            </AccordionTrigger>
+            <AccordionContent className='mt-4 text-xl'>
+              {answer}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </section>
   )
 }
