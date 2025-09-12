@@ -1,29 +1,17 @@
 'use client'
 
-import { stagger, useAnimate, useInView } from 'motion/react'
+import { useInView } from 'motion/react'
 import { useEffect } from 'react'
-import SplitType from 'split-type'
 import { H2 } from '@/components/ui/typography'
+import useTextRevealAnimation from '@/hooks/useTextRevealAnimation'
 
 function Intro() {
-  const [scope, animate] = useAnimate()
-  const inView = useInView(scope, {
-    once: true,
-  })
+  const { scope, entranceAnimation } = useTextRevealAnimation()
+  const inView = useInView(scope, { once: true })
 
   useEffect(() => {
-    new SplitType(scope.current.querySelectorAll('h2'), { types: 'words' })
-    if (inView) {
-      animate(
-        scope.current.querySelectorAll('.word'),
-        {
-          opacity: [0, 1],
-          transform: ['translateY(100%)', 'translateY(0)'],
-        },
-        { duration: 0.5, delay: stagger(0.2) },
-      )
-    }
-  }, [scope, inView, animate])
+    if (inView) entranceAnimation()
+  }, [inView, entranceAnimation])
 
   return (
     <section

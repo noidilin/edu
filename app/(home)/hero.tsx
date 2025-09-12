@@ -1,22 +1,16 @@
 'use client'
 
 import { ChevronDown } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { H1 } from '@/components/ui/typography'
+import useTextRevealAnimation from '@/hooks/useTextRevealAnimation'
 import heroImage from '@/public/images/hero-image.jpg'
-import SplitType from 'split-type'
-import {
-  useAnimate,
-  motion,
-  stagger,
-  useScroll,
-  useTransform,
-} from 'motion/react'
-import { useEffect, useRef } from 'react'
 
 function Hero() {
-  const [titleScope, titleAnimate] = useAnimate()
+  const { scope, entranceAnimation } = useTextRevealAnimation()
   // element that has enough height to scroll will give sticky element time to be animated
   const scrollingDiv = useRef<HTMLDivElement>(null)
   // map scroll progress to value that will be animated
@@ -28,14 +22,8 @@ function Hero() {
   const portraitWidth = useTransform(scrollYProgress, [0, 1], ['100%', '240%'])
 
   useEffect(() => {
-    new SplitType(titleScope.current, { types: 'words' })
-
-    titleAnimate(
-      titleScope.current.querySelectorAll('.word'),
-      { opacity: [0, 1], transform: ['translateY(100%)', 'translateY(0)'] },
-      { duration: 0.5, delay: stagger(0.2) },
-    )
-  }, [titleScope, titleAnimate])
+    entranceAnimation()
+  }, [entranceAnimation])
 
   return (
     <section className='mt-40 md:mt-0'>
@@ -45,7 +33,7 @@ function Hero() {
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              ref={titleScope}
+              ref={scope}
             >
               Crafting digital experiences through code and creative design
             </motion.span>
