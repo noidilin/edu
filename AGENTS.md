@@ -1,10 +1,22 @@
 # Agent Guidelines for Layers Project
 
+## Project Goal: Learning
+
+This is a project for learning shadcn and motion (animation library). My main goal is to write code that is performant, easy to maintain and can scale without issue. Please remind me if there is any code pattern or important concept that can makes me a better developer.
+
+## Tech Stack
+
+- language: typescript
+- package manager: bun
+- framework: Next.js
+- design system: shadcn/ui (tailwind + custom theme)
+- animation library: motion
+
 ## Build/Lint/Test Commands
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build production bundle
-- `npm run lint` - Run ESLint checks
+- `bun dev` - Start development server with Turbopack
+- `bun build` - Build production bundle
+- `bun lint` - Run lint checks
 - No test command configured
 
 ## Code Style Guidelines
@@ -12,9 +24,7 @@
 ### Formatting & Linting
 
 - Use Biome for linting and formatting (configured in `biome.json`)
-- Single quotes for strings and JSX (`'` not `"`)
-- Semicolons only when needed (`asNeeded`)
-- Space indentation (not tabs)
+  - default biome formatting option except indentation (use space not tabs)
 - Prettier with Tailwind CSS plugin for sorting classes
 
 ### TypeScript & Imports
