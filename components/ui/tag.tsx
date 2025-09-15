@@ -9,9 +9,9 @@ const tagVariants = cva(
     variants: {
       variant: {
         default:
-          'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',
+          'border-transparent bg-primary text-primary-foreground hover:bg-accent/90',
         outline:
-          'border-lime-400 bg-transparent text-lime-400 [a&]:hover:bg-lime-100/90',
+          'border-primary bg-transparent text-primary hover:bg-accent/50',
       },
     },
     defaultVariants: {

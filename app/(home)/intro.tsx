@@ -1,8 +1,8 @@
 'use client'
 
-import { Tag } from '@/components/ui/tag'
 import { useScroll, useTransform } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
+import { Tag } from '@/components/ui/tag'
 import { cn } from '@/lib/utils'
 
 const text = `You're racing to create exceptional work, but traditional design tools slow you down with unnecessary complexity and steep learning curves.`
@@ -39,7 +39,7 @@ export default function Intro() {
               >{`${word} `}</span>
             ))}
           </span>
-          <span className='block text-lime-400'>
+          <span className='block text-chart-2'>
             That&apos;s why we built Layers.
           </span>
         </div>

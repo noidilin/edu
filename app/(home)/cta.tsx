@@ -46,8 +46,8 @@ export default function Cta() {
         >
           {Array.from({ length: 10 }).map((_, i) => (
             <div key={i} className='flex items-center gap-16'>
-              <span className='text-7xl text-lime-400'>&#10038;</span>
-              <span className='transition duration-200 group-hover:text-lime-400'>
+              <span className='text-7xl text-chart-2'>&#10038;</span>
+              <span className='transition duration-200 group-hover:text-chart-2'>
                 Try it for free
               </span>
             </div>

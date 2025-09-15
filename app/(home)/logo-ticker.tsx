@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { H4 } from '@/components/ui/typography'
 import acmeLogo from '@/public/images/acme-corp.svg'
 import apexLogo from '@/public/images/apex.svg'
@@ -8,8 +7,9 @@ import outsideLogo from '@/public/images/outside.svg'
 import pulseLogo from '@/public/images/pulse.svg'
 import quantumLogo from '@/public/images/quantum.svg'
 import twiceLogo from '@/public/images/twice.svg'
-import { Fragment } from 'react'
 import * as motion from 'motion/react-client'
+import Image from 'next/image'
+import { Fragment } from 'react'
 
 const logos = [
   { name: 'Quantum', image: quantumLogo },
@@ -37,7 +37,12 @@ export default function LogoTicker() {
           {Array.from({ length: 2 }).map((_, i) => (
             <Fragment key={i}>
               {logos.map((logo) => (
-                <Image alt={logo.name} key={logo.name} src={logo.image} />
+                <Image
+                  alt={logo.name}
+                  key={logo.name}
+                  src={logo.image}
+                  className='invert-100 dark:invert-0'
+                />
               ))}
             </Fragment>
           ))}

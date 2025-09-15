@@ -29,7 +29,7 @@ function AssetCol({
       {integrations.map((integration) => (
         <div
           key={integration.name}
-          className='rounded-3xl border border-foreground/10 bg-neutral-900 p-6'
+          className='rounded-3xl border border-foreground/10 bg-card p-6'
         >
           <div className='flex justify-center'>
             <Image

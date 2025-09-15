@@ -12,7 +12,11 @@ export default function Footer() {
     <section className='mx-auto max-w-10/12 py-16'>
       <div className='flex flex-col items-center gap-6 md:flex-row md:justify-between'>
         <div>
-          <Image src={logoImage} alt='Layers logo' />
+          <Image
+            src={logoImage}
+            alt='Layers logo'
+            className='hue-rotate-330 invert-75 saturate-10 dark:invert-0'
+          />
         </div>
         <div>
           <nav className='flex gap-6'>

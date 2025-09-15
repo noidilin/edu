@@ -1,15 +1,15 @@
 'use client'
 
+import { motion, useAnimate } from 'motion/react'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import { Pointer } from '@/components/pointer'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { H1, Lead, Muted } from '@/components/ui/typography'
+import cusorYouImage from '@/public/images/cursor-you-gray.svg'
 import designExample1Image from '@/public/images/design-example-1.png'
 import designExample2Image from '@/public/images/design-example-2.png'
-import { motion, useAnimate } from 'motion/react'
-import { useEffect } from 'react'
-import cusorYouImage from '@/public/images/cursor-you.svg'
 
 export default function Hero() {
   const [leftDesignScope, leftDesignAnimate] = useAnimate()
@@ -61,7 +61,7 @@ export default function Hero() {
 
   return (
     <section
-      className='overflow-x-clip py-24'
+      className='mt-[86px] overflow-x-clip py-24 md:mt-[98px] lg:mt-[130px]'
       style={{ cursor: `url(${cusorYouImage.src}), auto` }}
     >
       <div className='relative mx-auto max-w-11/12'>
@@ -76,6 +76,7 @@ export default function Hero() {
               alt='design exampe 1'
               src={designExample1Image}
               draggable='false'
+              className='saturate-0'
             />
           </motion.div>
           <motion.div
@@ -84,7 +85,7 @@ export default function Hero() {
             className='absolute top-96 left-56'
           >
             <Pointer
-              labelStyle='bg-blue-500'
+              labelStyle='bg-accent dark:text-background'
               name='Johnason'
               pointerStyle='size-5'
             />
@@ -99,6 +100,7 @@ export default function Hero() {
               alt='design exampe 2'
               src={designExample2Image}
               draggable='false'
+              className='saturate-0'
             />
           </motion.div>
           <motion.div
@@ -107,14 +109,14 @@ export default function Hero() {
             className='absolute -top-4 right-80'
           >
             <Pointer
-              labelStyle='bg-rose-500'
+              labelStyle='bg-muted'
               name='Andrea'
               pointerStyle='size-5'
             />
           </motion.div>
         </div>
         <div className='mx-auto flex flex-col items-center'>
-          <Lead className='inline-flex rounded-full bg-gradient-to-r from-purple-400 to-pink-400 px-3 py-1 font-semibold text-neutral-900'>
+          <Lead className='rounded-2xl bg-linear-to-r from-chart-2 to-accent px-4 py-1.5 font-semibold text-primary-foreground'>
             $7.5M seed round raised
           </Lead>
           <H1 className='mt-6 text-center md:max-w-xl md:text-6xl lg:max-w-2xl lg:text-7xl xl:max-w-4xl xl:text-8xl'>
@@ -125,15 +127,13 @@ export default function Hero() {
             features with an intuitive interface that keep you in your creative
             flow.
           </Muted>
-          <form className='mt-8 flex w-1/2 max-w-lg gap-2 rounded-2xl border border-foreground/15 p-2'>
+          <form className='mt-8 flex w-1/2 max-w-lg gap-2 rounded-xl border border-foreground/15 p-2'>
             <Input
               placeholder='Enter your email'
               type='email'
               className='w-full px-4 md:flex-1'
             />
-            <Button type='submit' className='bg-lime-400'>
-              Sign Up
-            </Button>
+            <Button type='submit'>Sign Up</Button>
           </form>
         </div>
       </div>

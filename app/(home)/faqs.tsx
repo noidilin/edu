@@ -42,13 +42,13 @@ export default function Faqs() {
         <Tag variant='outline'>Faqs</Tag>
       </div>
       <H2 className='mx-auto mt-6 max-w-xl text-center text-6xl font-medium'>
-        Questions? We&apos;ve got <span className='text-lime-400'>answers</span>
+        Questions? We&apos;ve got <span className='text-chart-2'>answers</span>
       </H2>
       <div className='mx-auto mt-12 flex max-w-xl flex-col gap-6'>
         {faqs.map((faq, index) => (
           <div
             key={faq.question}
-            className='rounded-2xl border border-foreground/10 bg-neutral-900 p-6'
+            className='rounded-2xl border border-foreground/10 bg-card p-6'
           >
             <div
               className='flex items-center justify-between'
@@ -56,7 +56,7 @@ export default function Faqs() {
             >
               <H3 className='font-medium'>{faq.question}</H3>
               <Plus
-                className={`shrink-0 text-lime-400 transition duration-300 ${selectedIndex === index && 'rotate-45'}`}
+                className={`shrink-0 text-primary transition duration-300 ${selectedIndex === index && 'rotate-45'}`}
               />
             </div>
             <AnimatePresence>

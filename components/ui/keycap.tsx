@@ -9,7 +9,7 @@ const keycapVariants = cva(
     variants: {
       variant: {
         default:
-          'border-transparent bg-neutral-300 text-neutral-950 transition-all duration-500 outline-2 outline-offset-4 outline-transparent group-hover:outline-lime-400 group-hover:translate-y-1',
+          'border-transparent bg-neutral-300 text-neutral-950 transition-all duration-500 outline-2 outline-offset-4 outline-transparent group-hover:outline-accent group-hover:translate-y-1',
         outline: 'border-neutral-300 bg-transparent text-neutral-300',
       },
     },

@@ -51,7 +51,7 @@ export default function Integrations() {
         <div>
           <Tag variant={'outline'}>Integrations</Tag>
           <H2 className='mt-6 max-w-2xl border-0 text-6xl'>
-            Plays well with <span className='text-lime-400'>others</span>
+            Plays well with <span className='text-chart-2'>others</span>
           </H2>
           <Paragraph className='mt-4 text-lg text-foreground/50'>
             Layers seamlessly connects with your favorite too it easy to plug

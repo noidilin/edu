@@ -31,7 +31,7 @@ export default function Features() {
         <Tag variant='outline'>Features</Tag>
       </div>
       <H2 className='mx-auto mt-6 max-w-2xl border-0 text-center text-6xl'>
-        Where power meets <span className='text-lime-400'>simplicity</span>
+        Where power meets <span className='text-chart-2'>simplicity</span>
       </H2>
       <div className='mx-auto mt-12 grid max-w-9/12 grid-cols-1 gap-8 md:max-w-full md:grid-cols-4 lg:grid-cols-3 xl:max-w-6xl'>
         <Card className='group md:col-span-2 lg:col-span-1'>
@@ -50,7 +50,7 @@ export default function Features() {
                 <AvatarFallback>LM</AvatarFallback>
               </Avatar>
               <Avatar className='z-10 delay-300'>
-                <div className='relative inline-flex size-full items-center justify-center gap-1 rounded-full bg-neutral-700'>
+                <div className='relative inline-flex size-full items-center justify-center gap-1 rounded-full bg-muted'>
                   <AvatarImage
                     src={avatar4.src}
                     alt='owen-garcia'
@@ -79,7 +79,7 @@ export default function Features() {
             <div className='flex justify-center'>
               <p className='text-center text-4xl font-extrabold text-foreground/20 transition duration-500 group-hover:text-foreground/10'>
                 We&apos;ve achieved{' '}
-                <span className='relative bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent'>
+                <span className='relative bg-gradient-to-r from-chart-2 to-accent bg-clip-text text-transparent'>
                   <span>incredible</span>
                   <video
                     src='/images/gif-incredible.mp4'
@@ -121,9 +121,9 @@ export default function Features() {
         {features.map((feature) => (
           <div
             key={feature}
-            className='group inline-flex items-center gap-3 rounded-2xl border-foreground/10 bg-neutral-900 px-3 py-1.5 transition duration-500 hover:scale-105 md:px-5 md:py-2'
+            className='group inline-flex items-center gap-3 rounded-2xl border-foreground/10 bg-muted px-3 py-1.5 transition duration-500 hover:scale-105 md:px-5 md:py-2'
           >
-            <span className='inline-flex size-5 items-center justify-center rounded-full bg-lime-400 text-xl text-neutral-950 transition duration-500 group-hover:rotate-180'>
+            <span className='inline-flex size-5 items-center justify-center rounded-full bg-chart-2 text-xl text-foreground transition duration-500 group-hover:rotate-180 dark:text-background'>
               &#10038;
             </span>
             <span className='font-medium md:text-lg'>{feature}</span>
