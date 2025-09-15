@@ -1,7 +1,7 @@
-import { Fira_Code, Fraunces, Merriweather, Modak } from 'next/font/google'
+import { Fira_Code, Fraunces, Merriweather_Sans, Modak } from 'next/font/google'
 
-const merriweather = Merriweather({
-  variable: '--font-merriweather',
+const merriweatherSans = Merriweather_Sans({
+  variable: '--font-merriweather-sans',
   subsets: ['latin'],
 })
 
@@ -21,4 +21,4 @@ const modak = Modak({
   weight: '400',
 })
 
-export { merriweather, fraunces, firaCode, modak }
+export { merriweatherSans, fraunces, firaCode, modak }

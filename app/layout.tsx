@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { merriweather, fraunces, firaCode } from '@/lib/fonts'
+import { merriweatherSans, fraunces, firaCode } from '@/lib/fonts'
 import './globals.css'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`antialiased bg-background text-foreground ${merriweather.variable} ${fraunces.variable} ${firaCode.variable}`}
+        className={`bg-background text-foreground antialiased ${merriweatherSans.variable} ${fraunces.variable} ${firaCode.variable}`}
       >
         <ThemeProvider
           attribute='class'
