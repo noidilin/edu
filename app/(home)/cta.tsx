@@ -45,9 +45,11 @@ export default function Cta() {
           onMouseLeave={() => setIsHovered(false)}
         >
           {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className='flex items-center gap-16'>
-              <span className='text-7xl text-chart-2'>&#10038;</span>
-              <span className='transition duration-200 group-hover:text-chart-2'>
+            <div key={i} className='flex items-center gap-16 font-serif'>
+              <span className='text-7xl text-chart-2 transition-all duration-300 group-hover:text-primary'>
+                &#10038;
+              </span>
+              <span className='transition duration-300 group-hover:text-chart-2'>
                 Try it for free
               </span>
             </div>

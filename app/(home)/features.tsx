@@ -121,12 +121,12 @@ export default function Features() {
         {features.map((feature) => (
           <div
             key={feature}
-            className='group inline-flex items-center gap-3 rounded-2xl border-foreground/10 bg-muted px-3 py-1.5 transition duration-500 hover:scale-105 md:px-5 md:py-2'
+            className='group inline-flex items-center gap-3 rounded-2xl border-foreground/10 bg-accent/50 px-3 py-1.5 transition duration-500 hover:scale-105 md:px-5 md:py-2 dark:bg-muted/30'
           >
             <span className='inline-flex size-5 items-center justify-center rounded-full bg-chart-2 text-xl text-foreground transition duration-500 group-hover:rotate-180 dark:text-background'>
               &#10038;
             </span>
-            <span className='font-medium md:text-lg'>{feature}</span>
+            <span className='font-serif font-medium md:text-lg'>{feature}</span>
           </div>
         ))}
       </div>

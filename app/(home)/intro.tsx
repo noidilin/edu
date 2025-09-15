@@ -27,7 +27,7 @@ export default function Intro() {
         <div className='flex justify-center'>
           <Tag variant='outline'>Introducing Layers</Tag>
         </div>
-        <div className='mt-10 text-center text-4xl font-medium sm:text-5xl md:text-6xl lg:text-7xl'>
+        <div className='mt-10 text-center font-serif text-4xl font-medium sm:text-5xl md:text-6xl lg:text-7xl'>
           <span>Your creative process deserves better.</span>{' '}
           <span>
             {words.map((word, wordIndex) => (
