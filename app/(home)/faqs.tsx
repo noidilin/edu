@@ -41,7 +41,7 @@ export default function Faqs() {
       <div className='flex justify-center'>
         <Tag variant='outline'>Faqs</Tag>
       </div>
-      <H2 className='mx-auto mt-6 max-w-xl text-center text-6xl font-medium'>
+      <H2 className='mx-auto mt-6 max-w-xl border-b-0 text-center text-6xl font-medium'>
         Questions? We&apos;ve got <span className='text-chart-2'>answers</span>
       </H2>
       <div className='mx-auto mt-12 flex max-w-xl flex-col gap-6'>
