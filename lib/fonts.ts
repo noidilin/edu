@@ -1,17 +1,17 @@
 import { Fira_Code, Fraunces, Merriweather_Sans, Modak } from 'next/font/google'
 
 const merriweatherSans = Merriweather_Sans({
-  variable: '--font-merriweather-sans',
+  variable: '--font-sans',
   subsets: ['latin'],
 })
 
 const fraunces = Fraunces({
-  variable: '--font-fraunces',
+  variable: '--font-serif',
   subsets: ['latin'],
 })
 
 const firaCode = Fira_Code({
-  variable: '--font-fira-code',
+  variable: '--font-mono',
   subsets: ['latin'],
 })
 
