@@ -1,30 +1,51 @@
-# Agent Guidelines
+# Agent Guidelines for Layers Project
 
-## Commands
+## Project Goal: Learning
 
-- **Dev**: `npm run dev` (Next.js with Turbopack)
-- **Build**: `npm run build` (includes type checking)
-- **Lint**: `npm run lint` (ESLint with Next.js config)
-- **Format**: Use Biome (`@biomejs/biome`) or Prettier for formatting
+This is a project for learning shadcn and motion (animation library). My main goal is to write code that is performant, easy to maintain and can scale without issue. Please remind me if there is any code pattern or important concept that can makes me a better developer.
 
-## Code Style
+## Tech Stack
 
-- **Imports**: Use `@/` alias for project root imports, organize imports automatically
-- **Quotes**: Single quotes for JS/TS, JSX single quotes enabled
-- **Semicolons**: As needed (Biome config)
-- **Formatting**: 2-space indentation, Tailwind classes sorted with prettier-plugin-tailwindcss
-- **TypeScript**: Strict mode enabled, use `type` imports for type-only imports
+- language: typescript
+- package manager: bun
+- framework: Next.js
+- design system: shadcn/ui (tailwind + custom theme)
+- animation library: motion
 
-## Conventions
+## Build/Lint/Test Commands
 
-- **Components**: Use function declarations, export at bottom with named exports
-- **Props**: Define interface/type before component, use destructuring with defaults
-- **Styling**: Tailwind CSS with `cn()` utility from `@/lib/utils` for conditional classes
-- **UI Components**: Use Radix UI primitives with class-variance-authority for variants
-- **Error Handling**: Use TypeScript strict mode, proper return types
+- `bun dev` - Start development server with Turbopack
+- `bun build` - Build production bundle
+- `bun lint` - Run lint checks
+- No test command configured
 
-## Architecture
+## Code Style Guidelines
 
-- Next.js 15 with App Router, React 19, TypeScript 5
-- UI components in `components/ui/`, page components in `app/`
-- Theme support via `next-themes` with system preference detection
+### Formatting & Linting
+
+- Use Biome for linting and formatting (configured in `biome.json`)
+  - default biome formatting option except indentation (use space not tabs)
+- Prettier with Tailwind CSS plugin for sorting classes
+
+### TypeScript & Imports
+
+- Strict TypeScript mode enabled
+- Use `@/` path alias for imports (e.g., `@/components/ui/button`)
+- Organize imports automatically (Biome config)
+- Import types with `type` keyword when needed
+
+### React & Next.js Patterns
+
+- Use function declarations for components (not arrow functions)
+- Export components and utilities at bottom of file
+- Prefer `type` over `interface` for props
+- Use `className` prop with `cn()` utility for conditional classes
+
+### Naming Conventions
+
+- camelCase for variables and functions
+- PascalCase for components and types
+- kebab-case for file names
+- Use descriptive names (e.g., `buttonVariants` not `variants`)
+
+No Cursor or Copilot rules found in this repository.
