@@ -41,7 +41,7 @@ function Footer() {
     >
       <div>
         <div className='flex items-center gap-3'>
-          <div className='size-3 animate-pulse rounded-full bg-accent' />
+          <div className='size-3 animate-pulse rounded-full bg-chart-2' />
           <span className='uppercase'>One spot available for next month</span>
         </div>
         <div className='mt-2 grid md:mt-4 md:grid-cols-3'>

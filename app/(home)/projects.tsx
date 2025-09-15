@@ -41,7 +41,7 @@ function Projects() {
       <H2 className='text-4xl font-bold md:text-7xl lg:text-8xl'>
         Select Works
       </H2>
-      <div className='mt-10 md:mt-16 lg:mt-20'>
+      <div className='mt-10'>
         {projects.map(({ name, image }) => (
           <a
             href='/'

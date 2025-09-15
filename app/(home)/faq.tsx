@@ -40,7 +40,7 @@ function FAQs() {
             key={question}
             className='group/faq'
           >
-            <AccordionTrigger className='text-2xl font-light transition-all duration-300 group-hover/faq:pl-1 group-hover/faq:font-normal md:text-3xl lg:text-4xl'>
+            <AccordionTrigger className='text-2xl font-light transition-all duration-300 group-hover/faq:pl-1 md:text-3xl lg:text-4xl'>
               {question}
             </AccordionTrigger>
             <AccordionContent className='mt-4 text-xl'>
