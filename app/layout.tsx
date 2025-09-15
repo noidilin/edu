@@ -1,15 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { firaCode, fraunces, merriweatherSans } from '@/lib/fonts'
 import './globals.css'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-  axes: ['opsz'],
-})
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Modern Design Tool Landing Page',
@@ -24,7 +18,12 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${inter.variable} bg-background font-sans text-foreground antialiased`}
+        className={cn(
+          'bg-background font-sans text-foreground antialiased',
+          merriweatherSans.variable,
+          fraunces.variable,
+          firaCode.variable,
+        )}
       >
         <ThemeProvider
           attribute='class'

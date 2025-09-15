@@ -25,7 +25,7 @@
   --border: oklch(0.7668 0 0);
   --input: oklch(0.8078 0 0);
   --ring: oklch(0.6234 0 0);
-  --chart-1: oklch(0.6234 0 0);
+  --chart-1: oklch(0.7902 0.0193 86.1584);
   --chart-2: oklch(0.7141 0.1045 33.0967);
   --chart-3: oklch(0.7573 0.0479 256.4904);
   --chart-4: oklch(0.8854 0.0473 77.6093);
@@ -38,9 +38,9 @@
   --sidebar-accent-foreground: oklch(0.937 0 0);
   --sidebar-border: oklch(0.8078 0 0);
   --sidebar-ring: oklch(0.6234 0 0);
-  --font-sans: var(--font-merriweather), ui-sans-serif, sans-serif, system-ui;
-  --font-serif: var(--font-fraunces), ui-serif, serif;
-  --font-mono: var(--font-fira-code), monospace;
+  --font-sans: Merriweather Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: Fraunces, ui-serif, serif;
+  --font-mono: Fira Code, monospace;
   --radius: 0.25rem;
   --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 25.4902% / 0.13);
   --shadow-xs: 0px 1px 2px 0px hsl(0 0% 25.4902% / 0.13);
@@ -84,11 +84,11 @@
   --border: oklch(0.329 0 0);
   --input: oklch(0.3753 0 0);
   --ring: oklch(0.4784 0 0);
-  --chart-1: oklch(0.8673 0.0101 87.4777);
+  --chart-1: oklch(0.7902 0.0193 86.1584);
   --chart-2: oklch(0.7141 0.1045 33.0967);
-  --chart-3: oklch(0.6234 0 0);
-  --chart-4: oklch(0.4784 0 0);
-  --chart-5: oklch(0.3753 0 0);
+  --chart-3: oklch(0.6619 0.0445 246.2935);
+  --chart-4: oklch(0.8407 0.0437 89.372);
+  --chart-5: oklch(0.4784 0 0);
   --sidebar: oklch(0.1957 0 0);
   --sidebar-foreground: oklch(0.696 0 0);
   --sidebar-primary: oklch(0.7668 0 0);
@@ -173,6 +173,7 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
