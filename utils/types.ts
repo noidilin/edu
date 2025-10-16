@@ -1,9 +1,16 @@
-export interface DealFormState<T> {
+import type { Deal } from './schemas'
+
+export interface DealFormState {
   errors?: StringMap
   successMsg?: string
-  data?: T
+  data?: StringMap
+  validated?: Deal
   blurs?: StringToBooleanMap
 }
+
+// export type DealFormState<T> =
+//   | { errors: StringMap; data: Partial<T> }
+//   | { successMag: string; data?: T }
 
 export interface StringMap {
   [key: string]: string
