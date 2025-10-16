@@ -7,7 +7,7 @@ import { convertZodErrors } from '@/utils/zod'
 
 export async function formHandlerAction(
   formData: FormData,
-): Promise<DealFormState<undefined>> {
+): Promise<DealFormState> {
   // more time to observe
   await sleep(1000)
 

@@ -30,8 +30,8 @@ function DealForm() {
             type="text"
             name="name"
             id="name"
-            required={true}
-            className="w-full p-2 rounded-md text-gray-900"
+            required
+            className="w-full p-2 rounded-md text-gray-500"
           />
           <div className="h-8">
             {errors?.name && (
@@ -47,10 +47,8 @@ function DealForm() {
             type="text"
             name="link"
             id="link"
-            className="w-full p-2 rounded-md text-gray-900"
-            required={true}
-            pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
-            title="Please enter a valid url"
+            className="w-full p-2 rounded-md text-gray-500"
+            required
           />
           <div className="h-8">
             {errors?.link && (
@@ -66,9 +64,8 @@ function DealForm() {
             type="text"
             name="couponCode"
             id="couponCode"
-            required={true}
-            minLength={5}
-            className="w-full p-2 rounded-md text-gray-900"
+            required
+            className="w-full p-2 rounded-md text-gray-500"
           />
           <div className="h-8">
             {errors?.couponCode && (
@@ -85,10 +82,8 @@ function DealForm() {
             name="discount"
             id="discount"
             defaultValue={10}
-            required={true}
-            min={1}
-            max={99}
-            className="w-full p-2 rounded-md text-gray-900"
+            required
+            className="w-full p-2 rounded-md text-gray-500"
           />
           <div className="h-8">
             {errors?.discount && (
