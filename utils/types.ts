@@ -3,8 +3,7 @@ import type { Deal } from './schemas'
 export interface DealFormState {
   errors?: StringMap
   successMsg?: string
-  data?: StringMap
-  validated?: Deal
+  data?: Deal
   blurs?: StringToBooleanMap
 }
 
