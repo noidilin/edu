@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Summary
 
-## Getting Started
+1. Server Action: Basic foundation, manual everything
+2. `useActionState`: Built-in state management, form persistence
+3. `useActionState` + Client Validation: Real-time feedback, better UX, blur tracking
+4. React Hook Form: Production-ready, minimal code, best performance, single validation source
 
-First, run the development server:
+> [!TIP] Recommendation:
+> Use React Hook Form for production apps with multiple forms. Use useActionState + client validation if you want to avoid dependencies and have full control.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> [!CAUTION] Types in this project
+> The types setup should be improved.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Form Implementation Comparison
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Server Action (Basic)
 
-## Learn More
+`app/server-action/`
 
-To learn more about Next.js, take a look at the following resources:
+How it works:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Client manually calls server action via `async` function
+- Manual state management with `useState` for errors
+- Manual form reset with `useRef`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pros:
 
-## Deploy on Vercel
+- Simple, straightforward implementation
+- Full control over form handling logic
+- Minimal React dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Cons:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Manual state management (errors, loading, success)
+- No built-in form data persistence on errors
+- Manual form reset handling
+- No pending state from `useFormStatus` utilized properly
+- More boilerplate code
+
+---
+
+### 2. `useActionState`
+
+`app/use-action-state/`
+
+What improved:
+
+• Uses React 19's `useActionState` hook
+• Server action now receives `prevState` parameter
+• Returns `unvalidated` data back to client on error (line 26)
+• Preserves form values using `defaultValue={state.data?.name}` (lines 39, 57, 75, 93)
+
+Pros:
+
+• Built-in state management for server responses
+• Automatic form data persistence on validation errors
+• Less boilerplate than manual approach
+• Better UX - users don't lose their input on errors
+
+Cons:
+
+• Still no client-side validation (must wait for server round-trip)
+• Uses `useEffect` for side effects (toast notifications)
+• Manual form reset still needed
+
+---
+
+### 3. `useActionState` + Client Validation
+
+`app/use-action-state-with-client-validation/`
+
+What improved:
+
+• Real-time client validation with `onChange` handler (lines 43-58)
+• Blur tracking to only show errors after user interaction (lines 38-41)
+• Immediate feedback without server round-trip
+• Server returns blurs object to show all errors on submit failure (lines 27-29)
+• Controlled inputs with value={deal.name} instead of `defaultValue`
+
+Pros:
+
+• Best UX - instant validation feedback
+• Shows errors only after user touches field (progressive disclosure)
+• Prevents unnecessary server requests for obvious validation errors
+• Reduces server load
+
+Cons:
+
+• More complex state management (deal, blurs, errors)
+• Validation logic duplicated (client + server)
+• More verbose component code (3 `useState` hooks + `useEffect`)
+• Controlled components can have performance implications
+
+---
+
+### 4. React Hook Form
+
+`app/react-hook-form/`
+
+What improved:
+
+• Uses battle-tested react-hook-form library
+• `zodResolver` integrates Zod schema directly (line 16)
+• Single validation source - no duplication
+• Server action simplified - receives typed Deal object, not `FormData` (line 8)
+• Built-in `isSubmitting` state (line 14)
+• Built-in mode: `'onBlur'` validation (line 18)
+• Auto-reset with `reset()` function
+
+Pros:
+
+• Least code in component (~40 lines vs ~100+ lines)
+• Best performance (uncontrolled inputs, optimized re-renders)
+• Single source of truth for validation (Zod schema)
+• Server action receives clean typed data, not `FormData`
+• Rich ecosystem and features (field arrays, nested objects, etc.)
+• Better TypeScript integration
+• Built-in accessibility features
+
+Cons:
+
+• External dependency (~40KB gzipped)
+• Requires learning react-hook-form API
+• Less explicit control over form behavior
+• Overkill for very simple forms
