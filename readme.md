@@ -1,11 +1,13 @@
-# edu
+# grit
 
 ## Overview
 
-> [!TIP]
+> [!NOTE]
+> Grit, a personality trait that combines perseverance and passion for long-term goals, helping individuals overcome challenges and maintain motivation over time.
+>
 > 60+ projects across 4 stage | HTML+CSS -> JavaScript -> React -> Next.js
 
-### Learning Progression
+### Progression
 
 This repository demonstrates a clear learning path:
 
@@ -35,10 +37,10 @@ edu/
 This repository documents my web development learning journey through various projects organized by technology stack. Each project represents hands-on practice with modern web development concepts, tools, and frameworks.
 
 > [!CAUTION]
-> Node Modules Management:
+> Windows `node_modules` Management:
 >
-> - Clean `node_modules` folders after finishing each project to keep the repo size manageable.
-> - Use `rimraf node_modules` instead of native Windows commands for reliable cleanup.
+> - Clean `node_modules` folders after finishing each project to keep the project size manageable.
+> - Use `rimraf` instead of native windows shell commands for reliable cleanup.
 
 ---
 
